@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: black;
+  color: #00FF00;
+  font-family: monospace;
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: green;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
