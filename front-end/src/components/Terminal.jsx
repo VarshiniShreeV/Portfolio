@@ -11,8 +11,8 @@ function Terminal() {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const typingSpeed = 60;
   const linesToType = [
-    'Welcome to my interactive terminal',
-    'Type help to start with',
+    "Welcome to Varshini Shree's interactive terminal",
+    "Type help to start with",
   ];
 
   const inputRef = useRef(null);
@@ -73,7 +73,7 @@ function Terminal() {
         <div className="mb-4 min-h-[3rem]">
           {typedLines.map((line, i) => (
             <p key={i} className="whitespace-pre-wrap">
-              $ {line}
+              {line}
             </p>
           ))}
         </div>
@@ -95,7 +95,7 @@ function Terminal() {
         {/* Input line */}
         {greetingDone && (
           <div className="flex items-center w-full max-w-3xl relative">
-            <span className="mr-2 select-none">$</span>
+            <span className="mr-2 select-none">$ </span>
             <span>
             {input}
 
@@ -106,7 +106,7 @@ function Terminal() {
               width: '4px',
               height: '1rem',
               backgroundColor: '#22c55e',
-              marginLeft: '4px',
+              marginLeft: '2px',
               animation: 'blink 1s step-start infinite',
               verticalAlign: 'bottom',
             }}
