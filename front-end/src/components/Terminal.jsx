@@ -64,12 +64,12 @@ function Terminal() {
       onClick={() => inputRef.current?.focus()}
     >
       <div className="w-full max-w-3xl h-[80vh] p-4 border border-green-600 rounded overflow-y-auto flex flex-col">
-        {/* Robot animation once */}
+        {/* Robot animation */}
         <div className="self-end mb-4 w-24">
           <Assistant message={null} />
         </div>
 
-        {/* Typed greeting */}
+        {/* Greeting */}
         <div className="mb-4 min-h-[3rem]">
           {typedLines.map((line, i) => (
             <p key={i} className="whitespace-pre-wrap">
@@ -92,29 +92,52 @@ function Terminal() {
           </div>
         )}
 
-        {/* Input line with hidden input */}
+        {/* Input line */}
         {greetingDone && (
-          <div className="flex items-center w-full max-w-3xl">
+          <div className="flex items-center w-full max-w-3xl relative">
             <span className="mr-2 select-none">$</span>
-            {/* Visible typed text */}
-            <span className="flex-grow">{input}</span>
+            <span>
+            {input}
 
-            {/* Blinking cursor */}
-            <span className="border-r-2 border-red-500 animate-blink ml-1 h-6"></span>
-
-            {/* Hidden real input */}
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              ref={inputRef}
-              className="absolute w-px h-px opacity-0 pointer-events-none focus:outline-none bg-black focus:ring-0 caret-black"
-              autoFocus
-              spellCheck="false"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
+            {/* Blinking Cursor */}
+            <span 
+              style={{
+              display: 'inline-block',
+              width: '4px',
+              height: '1rem',
+              backgroundColor: '#22c55e',
+              marginLeft: '4px',
+              animation: 'blink 1s step-start infinite',
+              verticalAlign: 'bottom',
+            }}
+          />
+          </span>
+          
+          {/* Hidden Input */}
+          <input
+            ref={inputRef}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            spellCheck={false}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 5,
+              width: '100%',
+              height: '100%',
+              background: 'transparent',
+              border: 'none',
+              outline: 'none',
+              color: 'transparent',
+              caretColor: 'transparent',
+              fontFamily: 'monospace',
+              zIndex: 1,
+              cursor: 'text',
+            }}
             />
           </div>
         )}
