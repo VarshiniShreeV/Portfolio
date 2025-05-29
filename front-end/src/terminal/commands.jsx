@@ -1,19 +1,23 @@
 export function parseCommand(command) {
   switch (command.toLowerCase()) {
     case 'help':
-      return <p>Available commands: 
-        whoami,
-        about, 
-        skills,
-        projects, 
-        resume, 
-        education,
-        experience,
-        certifications,
-        feedback,
-        contact, 
-        blog,
-        clear</p>;
+  return (
+    <p>
+      Available commands:<br />
+      ➤ whoami<br />
+      ➤ about<br />
+      ➤ skills<br />
+      ➤ projects<br />
+      ➤ resume<br />
+      ➤ education<br />
+      ➤ experience<br />
+      ➤ certifications<br />
+      ➤ feedback<br />
+      ➤ contact<br />
+      ➤ blog<br />
+      ➤ clear
+    </p>
+  );
     case 'whoami':
       return <p>Name : Varshini Shree V
         Role : --
