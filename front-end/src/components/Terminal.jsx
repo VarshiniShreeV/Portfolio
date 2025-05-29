@@ -17,6 +17,7 @@ function Terminal() {
 
   const inputRef = useRef(null);
   const containerRef = useRef(null);
+  const historyScrollRef = useRef(null);
 
   useEffect(() => {
     if (currentLineIndex < linesToType.length) {
@@ -40,6 +41,13 @@ function Terminal() {
       inputRef.current?.focus();
     }
   }, [currentLineIndex]);
+
+  // Auto-scroll history container to bottom on new history or typed lines
+  useEffect(() => {
+    if (historyScrollRef.current) {
+      historyScrollRef.current.scrollTop = historyScrollRef.current.scrollHeight;
+    }
+  }, [history, typedLines]);
 
   const handleKeyDown = (e) => {
     if (!greetingDone) return;
@@ -80,13 +88,16 @@ function Terminal() {
 
         {/* History */}
         {greetingDone && (
-          <div className="flex-1 overflow-y-auto mb-4">
+          <div
+            ref={historyScrollRef}
+            className="flex-1 overflow-y-auto mb-4"
+          >
             {history.map((entry, index) => (
               <div key={index} className="mb-3">
                 <p>
                   <span className="text-green-500">$</span> {entry.command}
                 </p>
-                <div>{entry.output}</div>
+                <div className="terminal-response">{entry.output}</div>
               </div>
             ))}
           </div>
@@ -97,47 +108,47 @@ function Terminal() {
           <div className="flex items-center w-full max-w-3xl relative">
             <span className="mr-2 select-none">$ </span>
             <span>
-            {input}
+              {input}
 
-            {/* Blinking Cursor */}
-            <span 
+              {/* Blinking Cursor */}
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: '4px',
+                  height: '1rem',
+                  backgroundColor: '#22c55e',
+                  marginLeft: '2px',
+                  animation: 'blink 1s step-start infinite',
+                  verticalAlign: 'bottom',
+                }}
+              />
+            </span>
+
+            {/* Hidden Input */}
+            <input
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              spellCheck={false}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
               style={{
-              display: 'inline-block',
-              width: '4px',
-              height: '1rem',
-              backgroundColor: '#22c55e',
-              marginLeft: '2px',
-              animation: 'blink 1s step-start infinite',
-              verticalAlign: 'bottom',
-            }}
-          />
-          </span>
-          
-          {/* Hidden Input */}
-          <input
-            ref={inputRef}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            spellCheck={false}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 5,
-              width: '100%',
-              height: '100%',
-              background: 'transparent',
-              border: 'none',
-              outline: 'none',
-              color: 'transparent',
-              caretColor: 'transparent',
-              fontFamily: 'monospace',
-              zIndex: 1,
-              cursor: 'text',
-            }}
+                position: 'absolute',
+                top: 0,
+                left: 5,
+                width: '100%',
+                height: '100%',
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: 'transparent',
+                caretColor: 'transparent',
+                fontFamily: 'monospace',
+                zIndex: 1,
+                cursor: 'text',
+              }}
             />
           </div>
         )}
