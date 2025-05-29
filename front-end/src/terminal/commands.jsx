@@ -74,10 +74,9 @@ export function parseCommand(command) {
 
     case 'resume':
       return wrap(
-  <a href="/resume.pdf" download='resume.pdf'>
-    ⬇ Download Resume (PDF)
-  </a>
-);
+        <a href={`${import.meta.env.BASE_URL}resume.pdf`} download>⬇ Download Resume
+      </a>
+    );
 
 
     case 'education':
