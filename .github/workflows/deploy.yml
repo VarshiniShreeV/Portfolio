@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -22,17 +22,16 @@ jobs:
         run: npm install
         working-directory: front-end
 
-      - name: Build project (with GitHub Pages base URL)
+      - name: Build for GitHub Pages
         run: |
-          export GITHUB_PAGES=true
-          export PATH=$(npm bin):$PATH
           npm run build
         working-directory: front-end
+        env:
+          GITHUB_PAGES: true
+          PATH: ${{ github.workspace }}/front-end/node_modules/.bin:${{ env.PATH }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: front-end/dist
-          user_name: 'github-actions[bot]'
-          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
