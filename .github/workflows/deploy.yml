@@ -25,6 +25,7 @@ jobs:
       - name: Build project (with GitHub Pages base URL)
         run: |
           export GITHUB_PAGES=true
+          export PATH=$(npm bin):$PATH
           npm run build
         working-directory: front-end
 
