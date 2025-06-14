@@ -9,6 +9,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: front-end
+        shell : bash
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,15 +25,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: front-end
 
-      - name: Build for GitHub Pages
+      - name: Build project with GitHub Pages base
         run: |
+          echo "GITHUB_PAGES=true" >> $GITHUB_ENV
           npm run build
         working-directory: front-end
-        env:
-          GITHUB_PAGES: true
-          PATH: ${{ github.workspace }}/front-end/node_modules/.bin:${{ env.PATH }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
