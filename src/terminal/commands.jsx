@@ -25,8 +25,8 @@ export function parseCommand(command) {
       return wrap(
         <>
           Name: Varshini Shree V<br />
-          Role: Aspiring Full Stack Developer<br />
-          Interests: Web & Desktop Development, Web Scraping, Cloud Automation<br />
+          Role: Aspiring Developer<br />
+          Interests: Web & Desktop Development, Web Scraping, Cloud Automation, SAP<br />
           Location: Coimbatore, India
         </>
       );
@@ -74,9 +74,8 @@ export function parseCommand(command) {
 
     case 'resume':
       return wrap(
-        <a href={`${import.meta.env.BASE_URL}resume.pdf`} download>⬇ Download Resume
-      </a>
-    );
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>⬇ Download Resume</a>
+      );
 
 
     case 'education':
@@ -85,6 +84,13 @@ export function parseCommand(command) {
           <strong>B.E. Computer Science and Engineering</strong><br />
           KGiSL Institute of Technology, Coimbatore (2022–2026)<br />
           CGPA: 8.45 / 10
+          <strong>HSC</strong><br />
+          Vijayalakshmi Matric Higher Secondary School, Sirumugai (2020–2022)<br />
+          90.6 %
+
+          <strong>B.E. Computer Science and Engineering</strong><br />
+          L.E.F Christian Matriculation School, Mettupalayam (2019–2020)<br />
+          91.4 %
         </>
       );
 
@@ -101,13 +107,13 @@ export function parseCommand(command) {
     case 'certifications':
       return wrap(
         <>
-          • <a href="https://drive.google.com/file/d/19sgbN58Iw8aKz067g2AuL4T4NbKiujHU/view?usp=drive_link" target="_blank">Python Foundation – Infosys Springboard</a><br />
+          • <a href="https://drive.google.com/file/d/19sgbN58Iw8aKz067g2AuL4T4NbKiujHU/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Python Foundation – Infosys Springboard</a><br />
           • Git & GitHub – Coursera<br />
-          • <a href="https://drive.google.com/file/d/16f-FBOGqdO6PV8YjM8uV1QO2qPLJnzHX/view?usp=drive_link" target="_blank">LFS101x – Linux Foundation</a><br />
-          • <a href="https://drive.google.com/file/d/1WCKr4tUGIaHz6qvNRXutOFLhSSl8OTFB/view?usp=drive_link" target="_blank">Linguaskill – Cambridge English</a><br />
+          • <a href="https://drive.google.com/file/d/16f-FBOGqdO6PV8YjM8uV1QO2qPLJnzHX/view?usp=drive_link" target="_blank" rel="noopener noreferrer">LFS101x – Linux Foundation</a><br />
+          • <a href="https://drive.google.com/file/d/1WCKr4tUGIaHz6qvNRXutOFLhSSl8OTFB/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Linguaskill – Cambridge English</a><br />
           • Internship Certificates:<br />
-          – <a href="https://drive.google.com/file/d/1WtYrmcxTmhqutqI2P8LJLU3NC1yxICys/view?usp=drive_link" target="_blank">Infosys Springboard</a><br />
-          – <a href="https://drive.google.com/file/d/1EkJqaAW7Zja49qD7nvvinFvXsKiK6JY0/view?usp=drive_link" target="_blank">Oasis Infobyte</a>
+          – <a href="https://drive.google.com/file/d/1WtYrmcxTmhqutqI2P8LJLU3NC1yxICys/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Infosys Springboard</a><br />
+          – <a href="https://drive.google.com/file/d/1EkJqaAW7Zja49qD7nvvinFvXsKiK6JY0/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Oasis Infobyte</a>
         </>
       );
 
@@ -124,16 +130,16 @@ export function parseCommand(command) {
         <>
           📧 Email: <a href="mailto:varshinishreevelumani@gmail.com">varshinishreevelumani@gmail.com</a><br />
           📱 Mobile: +91 9344073334<br />
-          🔗 LinkedIn: <a href="https://linkedin.com/in/varshini-shree-velumani-58a87b253" target="_blank">linkedin.com/in/varshini-shree</a><br />
-          🌐 GitHub: <a href="https://github.com/VarshiniShreeV" target="_blank">github.com/VarshiniShreeV</a><br />
-          💼 Portfolio: <a href="https://varshinishreev.github.io/Portfolio/" target="_blank">varshinishreev.github.io/Portfolio</a>
+          🔗 LinkedIn: <a href="https://linkedin.com/in/varshini-shree-velumani-58a87b253" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshini-shree</a><br />
+          🌐 GitHub: <a href="https://github.com/VarshiniShreeV" target="_blank" rel="noopener noreferrer">github.com/VarshiniShreeV</a><br />
+          💼 Portfolio: <a href="https://varshinishreev.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">varshinishreev.github.io/Portfolio</a>
         </>
       );
 
     case 'blog':
       return wrap(
         <>
-          📝 <a href="https://medium.com/@varshinishreevelumani" target="_blank">View my Blog on Medium</a>
+          📝 <a href="https://medium.com/@varshinishreevelumani" target="_blank" rel="noopener noreferrer">View my Blog on Medium</a>
         </>
       );
 

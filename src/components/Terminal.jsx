@@ -137,9 +137,8 @@ function Terminal() {
               style={{
                 position: 'absolute',
                 top: 0,
-                left: 5,
-                width: '100%',
-                height: '100%',
+                left: '1.2rem',
+                width: '1ch',
                 background: 'transparent',
                 border: 'none',
                 outline: 'none',

@@ -1,9 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-const isGitHubPages = process.env.GITHUB_PAGES === 'true'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: isGitHubPages ? '/Portfolio/' : '/',
+  base: '/Portfolio/', 
   plugins: [react()],
-})
+});
