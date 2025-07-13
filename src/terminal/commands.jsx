@@ -75,7 +75,7 @@ export function parseCommand(command) {
     case 'resume':
       return wrap(
         <p>
-          <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+          <a href="./resume.pdf" download="Varshini Shree V - Resume" target="_blank" rel="noopener noreferrer">
             ⬇ Download Resume
           </a>
         </p>
@@ -84,9 +84,18 @@ export function parseCommand(command) {
     case 'education':
       return wrap(
         <>
+          
           <strong>B.E. Computer Science and Engineering</strong><br />
           KGiSL Institute of Technology, Coimbatore (2022–2026)<br />
           CGPA: 8.45 / 10
+
+          <strong>HSC</strong><br />
+          Vijayalakshmi Matric Higher Secondary School, Sirumugai (2020–2022)<br />
+          90.6 % <br />
+
+          <strong>B.E. Computer Science and Engineering</strong><br />
+          L.E.F Christian Matriculation School, Mettupalayam (2019–2020)<br />
+          91.4 % <br />
         </>
       );
 
