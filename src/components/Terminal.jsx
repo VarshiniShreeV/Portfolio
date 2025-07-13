@@ -60,8 +60,11 @@ function Terminal() {
         return;
       }
       const output = parseCommand(input);
-      setHistory((prev) => [...prev, { command: input, output }]);
+      setHistory((prev) => [...prev, input]);
+
       setInput('');
+
+      
     }
   };
 
@@ -92,14 +95,15 @@ function Terminal() {
             ref={historyScrollRef}
             className="flex-1 overflow-y-auto mb-4"
           >
-            {history.map((entry, index) => (
-              <div key={index} className="mb-3">
-                <p>
-                  <span className="text-green-500">$</span> {entry.command}
-                </p>
-                <div className="terminal-response">{entry.output}</div>
-              </div>
-            ))}
+            {history.map((command, index) => (
+            <div key={index} className="mb-3">
+              <p>
+                <span className="text-green-500">$</span> {command}
+              </p>
+              {parseCommand(command)}
+            </div>
+          ))}
+
           </div>
         )}
 
@@ -137,9 +141,8 @@ function Terminal() {
               style={{
                 position: 'absolute',
                 top: 0,
-                left: 5,
-                width: '100%',
-                height: '100%',
+                left: '1.2rem',
+                width: '1ch',
                 background: 'transparent',
                 border: 'none',
                 outline: 'none',
